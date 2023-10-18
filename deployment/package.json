@@ -1,0 +1,34 @@
+{
+  "name": "tokenizer",
+  "version": "1.0.0",
+  "description": "Installation of the packages needed to deploy the smart contract on the Sepolia testnet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcooray42/Tokenizer.git"
+  },
+  "keywords": [
+    "blockchain",
+    "token",
+    "sepolia",
+    "smart",
+    "contract"
+  ],
+  "author": "dcooray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcooray42/Tokenizer/issues"
+  },
+  "homepage": "https://github.com/dcooray42/Tokenizer#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.18.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
