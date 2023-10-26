@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: CC-BY-NC-SA-4.0
+
 pragma solidity ^0.8.0;
 
 contract MultiSigWallet {
@@ -46,8 +48,8 @@ contract MultiSigWallet {
     }
 
     function submitTransaction(address _to) public payable {
-        require(_to != address(0), "Invalid ");
-        require(msg.value > 0, "Transfer amount must be grater than 0 ");
+        require(_to != address(0), "Invalid address");
+        require(msg.value > 0, "Transfer amount must be greater than 0");
         uint transactionId = transactions.length;
 
         transactions.push(

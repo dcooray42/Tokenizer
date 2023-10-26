@@ -1,4 +1,10 @@
-pragma solidity ^0.4.24;
+// SPDX-License-Identifier: CC-BY-NC-SA-4.0
+
+pragma solidity ^0.8.0;
+
+// Import Multi Signature Wallet
+
+import "./multi_sig_wallet.sol";
 
 //Safe Math Interface
 
@@ -26,30 +32,30 @@ contract SafeMath {
 
 //ERC Token Standard #20 Interface
 
-contract ERC20Interface {
-    function totalSupply() public constant returns (uint);
+abstract contract ERC20Interface {
+    function totalSupply() public virtual view returns (uint);
 
     function balanceOf(
         address tokenOwner
-    ) public constant returns (uint balance);
+    ) public virtual view returns (uint balance);
 
     function allowance(
         address tokenOwner,
         address spender
-    ) public constant returns (uint remaining);
+    ) public virtual view returns (uint remaining);
 
-    function transfer(address to, uint tokens) public returns (bool success);
+    function transfer(address to, uint tokens) public virtual returns (bool success);
 
     function approve(
         address spender,
         uint tokens
-    ) public returns (bool success);
+    ) public virtual returns (bool success);
 
     function transferFrom(
         address from,
         address to,
         uint tokens
-    ) public returns (bool success);
+    ) public virtual returns (bool success);
 
     event Transfer(address indexed from, address indexed to, uint tokens);
     event Approval(
@@ -61,7 +67,7 @@ contract ERC20Interface {
 
 //Actual token contract
 
-contract DCOToken is ERC20Interface, SafeMath {
+contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
     string public symbol;
     string public name;
     uint8 public decimals;
@@ -70,7 +76,7 @@ contract DCOToken is ERC20Interface, SafeMath {
     mapping(address => uint) balances;
     mapping(address => mapping(address => uint)) allowed;
 
-    constructor() public {
+    constructor(address[] memory _owners, uint _numConfirmationRequired) MultiSigWallet(_owners, _numConfirmationRequired) {
         symbol = "42DCO";
         name = "42 Dcooray";
         decimals = 5;
@@ -79,17 +85,17 @@ contract DCOToken is ERC20Interface, SafeMath {
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
 
-    function totalSupply() public constant returns (uint) {
+    function totalSupply() public override view returns (uint) {
         return _totalSupply - balances[address(0)];
     }
 
     function balanceOf(
         address tokenOwner
-    ) public constant returns (uint balance) {
+    ) public override view returns (uint balance) {
         return balances[tokenOwner];
     }
 
-    function transfer(address to, uint tokens) public returns (bool success) {
+    function transfer(address to, uint tokens) public override returns (bool success) {
         uint totalTokens;
 
         totalTokens = tokens * 10 ** uint(decimals);
@@ -102,7 +108,7 @@ contract DCOToken is ERC20Interface, SafeMath {
     function approve(
         address spender,
         uint tokens
-    ) public returns (bool success) {
+    ) public override returns (bool success) {
         uint totalTokens;
 
         totalTokens = tokens * 10 ** uint(decimals);
@@ -115,7 +121,7 @@ contract DCOToken is ERC20Interface, SafeMath {
         address from,
         address to,
         uint tokens
-    ) public returns (bool success) {
+    ) public override returns (bool success) {
         uint totalTokens;
 
         totalTokens = tokens * 10 ** uint(decimals);
@@ -132,11 +138,11 @@ contract DCOToken is ERC20Interface, SafeMath {
     function allowance(
         address tokenOwner,
         address spender
-    ) public constant returns (uint remaining) {
+    ) public override view returns (uint remaining) {
         return allowed[tokenOwner][spender];
     }
 
-    function() public payable {
+    function hello() public payable {
         revert();
     }
 }
