@@ -33,18 +33,21 @@ contract SafeMath {
 //ERC Token Standard #20 Interface
 
 abstract contract ERC20Interface {
-    function totalSupply() public virtual view returns (uint);
+    function totalSupply() public view virtual returns (uint);
 
     function balanceOf(
         address tokenOwner
-    ) public virtual view returns (uint balance);
+    ) public view virtual returns (uint balance);
 
     function allowance(
         address tokenOwner,
         address spender
-    ) public virtual view returns (uint remaining);
+    ) public view virtual returns (uint remaining);
 
-    function transfer(address to, uint tokens) public virtual returns (bool success);
+    function transfer(
+        address to,
+        uint tokens
+    ) public virtual returns (bool success);
 
     function approve(
         address spender,
@@ -76,7 +79,10 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
     mapping(address => uint) balances;
     mapping(address => mapping(address => uint)) allowed;
 
-    constructor(address[] memory _owners, uint _numConfirmationRequired) MultiSigWallet(_owners, _numConfirmationRequired) {
+    constructor(
+        address[] memory _owners,
+        uint _numConfirmationRequired
+    ) MultiSigWallet(_owners, _numConfirmationRequired) {
         symbol = "42DCO";
         name = "42 Dcooray";
         decimals = 5;
@@ -85,20 +91,26 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
 
-    function totalSupply() public override view returns (uint) {
+    function totalSupply() public view override returns (uint) {
         return _totalSupply - balances[address(0)];
     }
 
     function balanceOf(
         address tokenOwner
-    ) public override view returns (uint balance) {
+    ) public view override returns (uint balance) {
         return balances[tokenOwner];
     }
 
-    function transfer(address to, uint tokens) public override returns (bool success) {
+    function transfer(
+        address to,
+        uint tokens
+    ) public override returns (bool success) {
         uint totalTokens;
+        uint transactionID;
 
         totalTokens = tokens * 10 ** uint(decimals);
+        transactionID = submitTransaction(msg.sender, to, totalTokens);
+        confirmTransaction(transactionID);
         balances[msg.sender] = safeSub(balances[msg.sender], totalTokens);
         balances[to] = safeAdd(balances[to], totalTokens);
         emit Transfer(msg.sender, to, totalTokens);
@@ -123,8 +135,11 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
         uint tokens
     ) public override returns (bool success) {
         uint totalTokens;
+        uint transactionID;
 
         totalTokens = tokens * 10 ** uint(decimals);
+        transactionID = submitTransaction(from, to, totalTokens);
+        confirmTransaction(transactionID);
         balances[from] = safeSub(balances[from], totalTokens);
         allowed[from][msg.sender] = safeSub(
             allowed[from][msg.sender],
@@ -138,11 +153,7 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
     function allowance(
         address tokenOwner,
         address spender
-    ) public override view returns (uint remaining) {
+    ) public view override returns (uint remaining) {
         return allowed[tokenOwner][spender];
-    }
-
-    function hello() public payable {
-        revert();
     }
 }

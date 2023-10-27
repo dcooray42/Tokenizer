@@ -47,16 +47,21 @@ contract MultiSigWallet {
         }
     }
 
-    function submitTransaction(address _to) public payable {
+    function submitTransaction(
+        address _from,
+        address _to,
+        uint _value
+    ) public returns (uint) {
         require(_to != address(0), "Invalid address");
-        require(msg.value > 0, "Transfer amount must be greater than 0");
+        require(_value > 0, "Transfer amount must be greater than 0");
         uint transactionId = transactions.length;
 
         transactions.push(
-            Transaction({to: _to, value: msg.value, executed: false})
+            Transaction({to: _to, value: _value, executed: false})
         );
 
-        emit TransactionSubmitted(transactionId, msg.sender, _to, msg.value);
+        emit TransactionSubmitted(transactionId, _from, _to, _value);
+        return transactionId;
     }
 
     function confirmTransaction(uint _transactionId) public onlyOwner {
@@ -86,7 +91,7 @@ contract MultiSigWallet {
         return confirmation >= numConfirm;
     }
 
-    function executeTransaction(uint _transactionId) public payable {
+    function executeTransaction(uint _transactionId) public {
         require(_transactionId < transactions.length, "Invalid transaction");
         require(
             !transactions[_transactionId].executed,
@@ -97,7 +102,7 @@ contract MultiSigWallet {
             value: transactions[_transactionId].value
         }("");
 
-        require(success, "Transaction Execution Failed ");
+        require(success, "Transaction Execution Failed");
         transactions[_transactionId].executed = true;
         emit TransactionExecuted(_transactionId);
     }
