@@ -1,4 +1,5 @@
 **/.env
+**/accounts.json
 **/artifacts
 **/cache
 **/node_modules
