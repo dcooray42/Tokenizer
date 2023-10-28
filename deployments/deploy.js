@@ -5,8 +5,8 @@ async function main() {
 
     // Define the constructor arguments
     const owners = [
-        0x6c55B2184A6D7E779Dee4F47c4BeeEA457abAD7F,
-        0xD60CB1FEbdEF23F308D70138305aE117eD7a9AcD
+        "0x6c55B2184A6D7E779Dee4F47c4BeeEA457abAD7F",
+        "0xD60CB1FEbdEF23F308D70138305aE117eD7a9AcD"
     ];
     const numConfirmationRequired = 2;
 

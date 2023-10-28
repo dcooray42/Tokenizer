@@ -2,4 +2,4 @@
 
 npm i -y
 npx hardhat compile
-npx hardhat run deployments/deploy.js --network sepolia
+npx hardhat run deploy.js --network sepolia
