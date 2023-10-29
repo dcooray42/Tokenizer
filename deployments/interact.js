@@ -74,12 +74,44 @@ const approve = async (token) => {
     }
 }
 
+const transfer_from = async (token) => {
+    let wallet_from;
+    let wallet_to;
+    let value;
+
+    wallet_from = prompt("Enter the address of the wallet from: ");
+    wallet_to = prompt("Enter the address to: ");
+    while (true) {
+        value = parseInt(prompt("Enter the amount of tokens to transfer: "));
+        if (isNaN(value)) {
+            console.log("Please enter a valid number.");
+        } else {
+            break;
+        }
+    }
+    const startBlock = await token.provider.getBlockNumber();
+    const tx = await token.transferFrom(wallet_from, wallet_to, value);
+    await tx.wait();
+    const endBlock = await token.provider.getBlockNumber();
+    const filter = token.filters.Transfer(null, null);
+    const events = await token.queryFilter(filter, startBlock, endBlock);
+
+    if (events.length > 0) {
+        console.log("Transfer event associated with this transaction:");
+        for (const event of events) {
+            console.log(`From: ${event.args.from}, To: ${event.args.to}, Value: ${event.args.tokens}`);
+        }
+    } else {
+        console.log("No Transfer events found for this transaction.");
+    }
+}
+
 const allowance = async (token) => {
     let wallet_from;
     let wallet_to;
 
     wallet_from = prompt("Enter the address of the wallet from: ");
-    wallet_to = prompt("Enter the address to: ")
+    wallet_to = prompt("Enter the address to: ");
     console.log(`${wallet_from} allowed ${wallet_to} to withdraw from its account ${await token.allowance(wallet_from, wallet_to)} 42DCO`);
 }
 
@@ -88,6 +120,7 @@ const smart_contract_methods = [
     balance_of,
     transfer,
     approve,
+    transfer_from,
     allowance
 ];
 
@@ -123,8 +156,9 @@ const display_methods = () => {
     console.log("0) Total supply");
     console.log("1) Balance of");
     console.log("2) Transfer");
-    console.log("3) Approve")
-    console.log("4) Allowance");
+    console.log("3) Approve");
+    console.log("4) Transfer from");
+    console.log("5) Allowance");
 }
 
 const interact = async (token) => {
@@ -137,7 +171,7 @@ const interact = async (token) => {
             break;
         }
         value = parseInt(value);
-        if (value < 0 || value >= 5 || isNaN(value)) {
+        if (value < 0 || value >= 6 || isNaN(value)) {
             console.log("Enter a valid number.");
         } else {
             try {
