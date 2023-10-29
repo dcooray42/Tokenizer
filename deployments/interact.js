@@ -44,6 +44,36 @@ const transfer = async (token) => {
     }
 }
 
+const approve = async (token) => {
+    let wallet_address;
+    let value;
+
+    wallet_address = prompt("Enter the address of the wallet: ");
+    while (true) {
+        value = parseInt(prompt("Enter the amount of tokens to transfer: "));
+        if (isNaN(value)) {
+            console.log("Please enter a valid number.");
+        } else {
+            break;
+        }
+    }
+    const startBlock = await token.provider.getBlockNumber();
+    const tx = await token.approve(wallet_address, value);
+    await tx.wait();
+    const endBlock = await token.provider.getBlockNumber();
+    const filter = token.filters.Approval(null, null);
+    const events = await token.queryFilter(filter, startBlock, endBlock);
+
+    if (events.length > 0) {
+        console.log("Approval event associated with this transaction:");
+        for (const event of events) {
+            console.log(`From: ${event.args.tokenOwner}, To: ${event.args.spender}, Value: ${event.args.tokens}`);
+        }
+    } else {
+        console.log("No Approval events found for this transaction.");
+    }
+}
+
 const allowance = async (token) => {
     let wallet_from;
     let wallet_to;
@@ -57,6 +87,7 @@ const smart_contract_methods = [
     total_supply,
     balance_of,
     transfer,
+    approve,
     allowance
 ];
 
@@ -92,7 +123,8 @@ const display_methods = () => {
     console.log("0) Total supply");
     console.log("1) Balance of");
     console.log("2) Transfer");
-    console.log("3) Allowance");
+    console.log("3) Approve")
+    console.log("4) Allowance");
 }
 
 const interact = async (token) => {
@@ -105,7 +137,7 @@ const interact = async (token) => {
             break;
         }
         value = parseInt(value);
-        if (value < 0 || value >= 4 || isNaN(value)) {
+        if (value < 0 || value >= 5 || isNaN(value)) {
             console.log("Enter a valid number.");
         } else {
             try {
@@ -160,11 +192,10 @@ const main = async () => {
     try {
         parsed_data = await read_accounts();
         wallets_info = parse_wallets(parsed_data);
+        await select_wallet(wallets_info);
     } catch (err) {
-        console.error('Error while parsing JSON data:', err);
-        return;
+        throw err;
     }
-    await select_wallet(wallets_info);
 }
 
 main()
