@@ -5,6 +5,7 @@ Tokenizer is a school project that serves as an introduction to the world of blo
 
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
+- [Project Overview](#project-overview)
 - [Environment Variables](#environment-variables)
 - [Folder Structure](#folder-structure)
 - [Deployment](#deployment)
@@ -17,25 +18,36 @@ Tokenizer is a school project that serves as an introduction to the world of blo
 To begin, you'll need to set up your environment and interact with the smart contract.
 
 ## Prerequisites
-An Ethereum wallet (e.g., MetaMask) configured for the testnet.<br>
-Some test Ether for gas fees.
+Before you begin, make sure you have the following:
+
+- A basic understanding of blockchain technology.<br>
+- An Ethereum wallet (e.g., MetaMask).<br>
+- Some testnet Ether for deploying and interacting with the smart contract.
+
+## Project Overview
+Tokenizer is designed to help you gain insights into blockchain technology. The project focuses on the deployment of a token smart contract on a testnet, and its goals include:
+
+- Enhancing your understanding of blockchain concepts.<br>
+- Navigating the complexities of blockchain technology.<br>
+- Providing a creative and critical learning experience.
 
 ## Environment Variables
-Create a .env file in the project's root directory and specify the following environment variables:
+Create a `.env` file in the `deployment` directory and specify the following environment variables:
 
 ```plaintext
 API_URL = "api_url"
 PRIVATE_KEY = "wallet_private_key"
 ```
-`API_URL`: Replace with the API URL for your chosen network (e.g., Infura).<br>
-`PRIVATE_KEY`: Replace with the private key of your wallet.
+- `API_URL`: Replace with the API URL for your chosen network (e.g., Infura).<br>
+- `PRIVATE_KEY`: Replace with the private key of your wallet.
 
 ## Folder Structure
-`code`: Contains the source code for the smart contract.<br>
-`deployment`: Holds deployment scripts and related files.<br>
-`documentation`: Any additional documentation or resources for the project.
+- `code`: Contains the source code for the smart contract.<br>
+- `deployment`: Holds deployment scripts and related files.<br>
+- `documentation`: Any additional documentation or resources for the project.
 
 ## Deployment
+Make sure to be in the `deployment` folder to continue.<br>
 To deploy the smart contract to your chosen testnet, use the provided deployment script:
 
 ```shell
@@ -44,7 +56,7 @@ To deploy the smart contract to your chosen testnet, use the provided deployment
 The script compiles the contract, deploys it, and prints the address of the deployed smart contract.
 
 ## Account Configuration
-To perform actions on the smart contract, create an accounts.json file in the project's root directory and structure it as follows:
+To perform actions on the smart contract, create an `accounts.json` file in the `deployment` directory and structure it as follows:
 
 ```json
 [
@@ -61,6 +73,7 @@ To perform actions on the smart contract, create an accounts.json file in the pr
 Add as many accounts as needed for your testing.
 
 ## Interacting with the Smart Contract
+Make sure to be in the `deployment` folder to continue.<br>
 To interact with the deployed smart contract, use the provided JavaScript script. The script allows you to perform actions like checking balances, transferring tokens, approving transactions, and more.
 
 Run the interaction script using the following command:
@@ -71,6 +84,7 @@ Run the interaction script using the following command:
 The script will prompt you to select an action and the corresponding wallet to use for the interaction. Follow the prompts to perform your desired actions.
 
 ## Smart Contract Information
+This smart contract has been deployed on the Sepolia Testnet.<br>
 The deployed smart contract's address: [0x48135556160d4A40C05DD9985eC4B536AD03aF94](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94)
 
 Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94).
