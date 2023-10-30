@@ -15,8 +15,21 @@ Create a .env file in the project's root directory and specify the following env
 API_URL = "api_url"
 PRIVATE_KEY = "wallet_private_key"
 ```
-API_URL: Replace with the API URL for your chosen network (e.g., Infura).
-PRIVATE_KEY: Replace with the private key of your wallet.
+`API_URL`: Replace with the API URL for your chosen network (e.g., Infura).
+`PRIVATE_KEY`: Replace with the private key of your wallet.
+
+## Folder Structure
+`code`: Contains the source code for the smart contract.
+`deployment`: Holds deployment scripts and related files.
+`documentation`: Any additional documentation or resources for the project.
+
+## Deployment
+To deploy the smart contract to your chosen testnet, use the provided deployment script:
+
+```shell
+./start.sh
+```
+The script compiles the contract, deploys it, and prints the address of the deployed smart contract.
 
 ## Account Configuration
 To perform actions on the smart contract, create an accounts.json file in the project's root directory and structure it as follows:
@@ -48,18 +61,6 @@ The script will prompt you to select an action and the corresponding wallet to u
 The deployed smart contract's address: 0x48135556160d4A40C05DD9985eC4B536AD03aF94
 
 Explore transactions and interactions on the smart contract on Etherscan.
-
-## Folder Structure
-code: Contains the source code for the smart contract.
-deployment: Holds deployment scripts and related files.
-documentation: Any additional documentation or resources for the project.
-Deployment
-To deploy the smart contract to your chosen testnet, use the provided deployment script:
-
-```shell
-./start.sh
-```
-The script compiles the contract, deploys it, and prints the address of the deployed smart contract.
 
 ## License
 This project is licensed under the MIT License.
