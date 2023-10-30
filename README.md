@@ -5,7 +5,7 @@ Tokenizer is a school project that serves as an introduction to the world of blo
 To begin, you'll need to set up your environment and interact with the smart contract.
 
 ## Prerequisites
-An Ethereum wallet (e.g., MetaMask) configured for the testnet.
+An Ethereum wallet (e.g., MetaMask) configured for the testnet.<br>
 Some test Ether for gas fees.
 
 ## Environment Variables
@@ -15,12 +15,12 @@ Create a .env file in the project's root directory and specify the following env
 API_URL = "api_url"
 PRIVATE_KEY = "wallet_private_key"
 ```
-`API_URL`: Replace with the API URL for your chosen network (e.g., Infura).
+`API_URL`: Replace with the API URL for your chosen network (e.g., Infura).<br>
 `PRIVATE_KEY`: Replace with the private key of your wallet.
 
 ## Folder Structure
-`code`: Contains the source code for the smart contract.
-`deployment`: Holds deployment scripts and related files.
+`code`: Contains the source code for the smart contract.<br>
+`deployment`: Holds deployment scripts and related files.<br>
 `documentation`: Any additional documentation or resources for the project.
 
 ## Deployment
@@ -47,7 +47,8 @@ To perform actions on the smart contract, create an accounts.json file in the pr
 ]
 ```
 Add as many accounts as needed for your testing.
-Interacting with the Smart Contract
+
+## Interacting with the Smart Contract
 To interact with the deployed smart contract, use the provided JavaScript script. The script allows you to perform actions like checking balances, transferring tokens, approving transactions, and more.
 
 Run the interaction script using the following command:
