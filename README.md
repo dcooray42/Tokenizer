@@ -90,7 +90,7 @@ The deployed smart contract's address: [0x48135556160d4A40C05DD9985eC4B536AD03aF
 Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94).
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
 
 ## Acknowledgments
 Tokenizer was created as part of a school project to explore blockchain technology. We hope this project helps you gain a deeper understanding of blockchain and smart contract deployment.
