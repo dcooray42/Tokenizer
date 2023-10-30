@@ -7,7 +7,8 @@ To begin, you'll need to set up your environment and interact with the smart con
 ## Prerequisites
 An Ethereum wallet (e.g., MetaMask) configured for the testnet.
 Some test Ether for gas fees.
-Environment Variables
+
+## Environment Variables
 Create a .env file in the project's root directory and specify the following environment variables:
 
 ```plaintext
@@ -21,7 +22,6 @@ PRIVATE_KEY: Replace with the private key of your wallet.
 To perform actions on the smart contract, create an accounts.json file in the project's root directory and structure it as follows:
 
 ```json
-Copy code
 [
     {
         "Main account": {
