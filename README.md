@@ -84,7 +84,7 @@ Run the interaction script using the following command:
 The script will prompt you to select an action and the corresponding wallet to use for the interaction. Follow the prompts to perform your desired actions.
 
 ## Smart Contract Information
-This smart contract has been deployed on the Sepolia Testnet.<br>
+This smart contract has been deployed on the `Sepolia Testnet`.<br>
 The deployed smart contract's address: [0x48135556160d4A40C05DD9985eC4B536AD03aF94](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94)
 
 Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94).
