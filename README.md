@@ -1,6 +1,18 @@
 # Tokenizer
 Tokenizer is a school project that serves as an introduction to the world of blockchain technology. This project involves deploying a token smart contract on a testnet of your choice, aiming to provide a better understanding of the blockchain, contract deployment, and interaction with smart contracts. Tokenizer encourages critical thinking, creativity, and pushing beyond your comfort zone to navigate the complexities of blockchain technology.
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Environment Variables](#environment-variables)
+- [Folder Structure](#folder-structure)
+- [Deployment](#deployment)
+- [Account Configuration](#account-configuration)
+- [Interacting with the Smart Contract](#interacting-with-the-smart-contract)
+- [Smart Contract Information](#smart-contract-information)
+- [License](#license)
+
 ## Getting Started
 To begin, you'll need to set up your environment and interact with the smart contract.
 
