@@ -1,5 +1,5 @@
 # Tokenizer
-Tokenizer is a school project that serves as an introduction to the world of blockchain technology. This project involves deploying a token smart contract on a testnet of your choice, aiming to provide a better understanding of the blockchain, contract deployment, and interaction with smart contracts. Tokenizer encourages critical thinking, creativity, and pushing beyond your comfort zone to navigate the complexities of blockchain technology.
+Tokenizer is a 42 school project that serves as an introduction to the world of blockchain technology. This project involves deploying a token smart contract on a testnet of your choice, aiming to provide a better understanding of the blockchain, contract deployment, and interaction with smart contracts. Tokenizer encourages critical thinking, creativity, and pushing beyond your comfort zone to navigate the complexities of blockchain technology.
 
 ## Table of Contents
 
