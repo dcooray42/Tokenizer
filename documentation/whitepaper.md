@@ -1,5 +1,13 @@
 # Tokenizer whitepaper
 
+**Author:** Dimitri Cooray
+
+**Date:** 31 october 2023
+
+**Organization:** 42 Paris School
+
+**Contact:** [dcooray@student.42.fr](dcooray@student.42.fr)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -37,7 +45,7 @@
 
 Blockchain technology has been revolutionizing the digital world, offering unprecedented security, transparency, and decentralization. As we delve into this remarkable era of innovation, it becomes essential to comprehend the fundamentals of blockchain, smart contracts, and their practical applications.
 
-Tokenizer is a project designed to help individuals gain a better understanding of the blockchain and its functionalities. We aim to demystify the complexities of this groundbreaking technology, guiding users through the process of deploying a smart contract on their preferred network and enabling them to interact with it effectively.
+`Tokenizer` is a project designed to help individuals gain a better understanding of the blockchain and its functionalities. We aim to demystify the complexities of this groundbreaking technology, guiding users through the process of deploying a smart contract on their preferred network and enabling them to interact with it effectively.
 
 ### The Challenge
 
@@ -85,17 +93,17 @@ The 42DCO Token is an ERC-20 compliant token, a well-established standard for fu
 
 The 42DCO Token smart contract offers a set of core functions and methods for seamless interaction:
 
-`Total Supply`: This function allows users to query the total supply of 42DCO tokens in circulation. Users can easily obtain information on the total number of tokens available.
+**`Total Supply:`** This function allows users to query the total supply of 42DCO tokens in circulation. Users can easily obtain information on the total number of tokens available.
 
-`Balance Of`: By using the "Balance Of" function, users can check the token balance associated with a specific wallet address. This feature is vital for tracking individual holdings and transactions.
+**`Balance Of:`** By using the "Balance Of" function, users can check the token balance associated with a specific wallet address. This feature is vital for tracking individual holdings and transactions.
 
-`Allowance`: The "Allowance" function enables wallet owners to specify the maximum amount another wallet or smart contract can spend on their behalf. It plays a crucial role in secure authorization for transfers.
+**`Allowance:`** The "Allowance" function enables wallet owners to specify the maximum amount another wallet or smart contract can spend on their behalf. It plays a crucial role in secure authorization for transfers.
 
-`Transfer`: This function facilitates the transfer of 42DCO tokens between wallet addresses. Users can efficiently send tokens to others within the ecosystem.
+**`Transfer:`** This function facilitates the transfer of 42DCO tokens between wallet addresses. Users can efficiently send tokens to others within the ecosystem.
 
-`Approve`: Wallet owners can use the "Approve" function to grant permission to another wallet or smart contract to transfer a specific amount of tokens on their behalf.
+**`Approve:`** Wallet owners can use the "Approve" function to grant permission to another wallet or smart contract to transfer a specific amount of tokens on their behalf.
 
-`Transfer From`: This function is integral to the transfer process when authorization is required. It allows an approved entity to execute a transfer on behalf of the wallet owner.
+**`Transfer From:`** This function is integral to the transfer process when authorization is required. It allows an approved entity to execute a transfer on behalf of the wallet owner.
 
 ### OpenZeppelin's ERC-20 Implementation
 
@@ -103,7 +111,7 @@ To ensure the highest level of security and compliance, the 42DCO Token smart co
 
 The use of OpenZeppelin's ERC-20 implementation guarantees that the 42DCO Token adheres to best practices and industry standards, reducing the risk of vulnerabilities and errors. Furthermore, it simplifies code maintenance and updates in response to changes in the blockchain ecosystem.
 
-By following these standards, the Tokenizer project's 42DCO Token is well-prepared to interact with various decentralized applications and platforms, providing an essential utility within the ecosystem.
+By following these standards, the `Tokenizer` project's 42DCO Token is well-prepared to interact with various decentralized applications and platforms, providing an essential utility within the ecosystem.
 
 In the subsequent sections, we will delve deeper into the deployment process, interaction methods, and ways to contribute to this exciting project.
 
@@ -119,15 +127,15 @@ The initial total supply of 42DCO tokens is set to 100000000 42DCO tokens. These
 
 The 42DCO tokens will be distributed following a fair and transparent strategy to ensure wide accessibility and utility. The distribution process includes:
 
-`Owner Allocation`: 100% of the total supply will be initially allocated to the project owner to support development, maintenance, and operational costs.
+**`Owner Allocation:`** 100% of the total supply will be initially allocated to the project owner to support development, maintenance, and operational costs.
 
-`Rewards and Incentives`: A portion of the tokens will be set aside for rewarding contributors, early adopters, and community participants who actively engage with the project.
+**`Rewards and Incentives:`** A portion of the tokens will be set aside for rewarding contributors, early adopters, and community participants who actively engage with the project.
 
-`User Activities`: Users will earn 42DCO tokens through their involvement in school activities, such as project validations, event participation, and completing the common core curriculum.
+**`User Activities:`** Users will earn 42DCO tokens through their involvement in school activities, such as project validations, event participation, and completing the common core curriculum.
 
-`Smart Contract`: The smart contract will mint tokens when required based on user activities and interaction with the platform.
+**`Smart Contract:`** The smart contract will mint tokens when required based on user activities and interaction with the platform.
 
-`Future Development`: A reserve fund will be established for future development and unforeseen expenses, ensuring the sustainability of the project.
+**`Future Development:`** A reserve fund will be established for future development and unforeseen expenses, ensuring the sustainability of the project.
 
 ### Token Sales
 
@@ -156,26 +164,26 @@ The deployment process for the 42DCO Token smart contract is an essential aspect
 
 Before initiating the deployment process, ensure that you have the following prerequisites in place:
 
-`Clone the Repository`: Begin by cloning the Tokenizer GitHub repository to your local machine. This repository contains the necessary code and deployment scripts.
+**`Clone the Repository:`** Begin by cloning the `Tokenizer` GitHub repository to your local machine. This repository contains the necessary code and deployment scripts.
 
-`Node.js and npm`: Make sure you have Node.js and npm (Node Package Manager) installed on your system. If you haven't already installed them, you can download and install them from the official Node.js website.
+**`Node.js and npm:`** Make sure you have Node.js and npm (Node Package Manager) installed on your system. If you haven't already installed them, you can download and install them from the official Node.js website.
 
-`Hardhat Development Environment`: We use the Hardhat development environment for compiling and deploying the smart contract.
+**`Hardhat Development Environment:`** We use the Hardhat development environment for compiling and deploying the smart contract.
 
-`API URL and Private Key`: You will need to configure your deployment environment by providing your API URL and the private key of the wallet associated with the smart contract deployment. These values will be used in the .env file, as described below.
+**`API URL and Private Key:`** You will need to configure your deployment environment by providing your API URL and the private key of the wallet associated with the smart contract deployment. These values will be used in the .env file, as described below.
 
 ### Deployment Steps
 
-`Navigate to Deployment Folder`: Open your terminal and navigate to the deployment folder within the cloned Tokenizer repository:
+**`Navigate to Deployment Folder:`** Open your terminal and navigate to the deployment folder within the cloned `Tokenizer` repository:
 
 ```shell
 cd Tokenizer/deployment
 ```
 
-`Create a .env File`: In the deployment folder, create a .env file. This file is used to specify the required environment variables:
+**`Create a .env File:`** In the deployment folder, create a .env file. This file is used to specify the required environment variables:
 
-`API_URL`: Replace this with the API URL for your chosen network. You may use services like Infura, Alchemy, or an Ethereum node URL.
-`PRIVATE_KEY`: Insert the private key of the wallet you'll use for the smart contract deployment.
+**`API_URL:`** Replace this with the API URL for your chosen network. You may use services like Infura, Alchemy, or an Ethereum node URL.
+**`PRIVATE_KEY:`** Insert the private key of the wallet you'll use for the smart contract deployment.
 Here's an example of what the .env file might look like:
 
 ```plaintext
@@ -183,7 +191,7 @@ API_URL=https://eth-sepolia.g.alchemy.com/v2/[YOUR-API-KEY]
 PRIVATE_KEY=your_wallet_private_key
 ```
 
-`Run the Deployment Script`: Once the .env file is configured, you can initiate the deployment process by executing the start.sh script:
+**`Run the Deployment Script:`** Once the .env file is configured, you can initiate the deployment process by executing the start.sh script:
 
 ```shell
 ./start.sh
@@ -210,9 +218,9 @@ To interact with the 42DCO Token, you will use a series of scripts and functions
 
 Before you begin interacting with the 42DCO Token, ensure you have the following prerequisites in place:
 
-`Ethereum Wallets`: You should have access to Ethereum wallets for various accounts that will interact with the token. Make sure you have these wallets configured and your private keys accessible.
+**`Ethereum Wallets:`** You should have access to Ethereum wallets for various accounts that will interact with the token. Make sure you have these wallets configured and your private keys accessible.
 
-`Ether (ETH)`: To execute transactions and interactions on the Ethereum network, you'll need a small amount of Ether to cover gas fees. Ensure that your Ethereum wallets have a sufficient balance of ETH.
+**`Ether (ETH):`** To execute transactions and interactions on the Ethereum network, you'll need a small amount of Ether to cover gas fees. Ensure that your Ethereum wallets have a sufficient balance of ETH.
 
 ### Using the interact.sh Script
 
@@ -254,17 +262,17 @@ The `interact.js` script is responsible for the actual interactions with the 42D
 
 Here are some of the key interactions you can perform with the `interact.js` script:
 
-`Total Supply`: Check the total supply of 42DCO tokens.
+**`Total Supply:`** Check the total supply of 42DCO tokens.
 
-`Balance Of`: Check the balance of a specific Ethereum wallet.
+**`Balance Of:`** Check the balance of a specific Ethereum wallet.
 
-`Transfer`: Transfer a specified amount of 42DCO tokens to another wallet.
+**`Transfer:`** Transfer a specified amount of 42DCO tokens to another wallet.
 
-`Approve`: Approve another Ethereum address to spend tokens on your behalf.
+**`Approve:`** Approve another Ethereum address to spend tokens on your behalf.
 
-`Transfer From`: Transfer tokens from one wallet to another, given appropriate approvals.
+**`Transfer From:`** Transfer tokens from one wallet to another, given appropriate approvals.
 
-`Allowance`: Check the allowance granted to another address by a token holder.
+**`Allowance:`** Check the allowance granted to another address by a token holder.
 
 The script will guide you through each interaction, and you'll be prompted to enter relevant details and confirm your actions. After each interaction, you will receive feedback on the executed action.
 
@@ -296,7 +304,7 @@ The 42DCO Token offers a user-friendly and flexible environment for interacting 
 
 ## Contributing
 
-We welcome contributions to the Tokenizer project. Whether you're a developer, designer, or just enthusiastic about blockchain technology, you can contribute to the project's growth. Here are some ways to get involved:
+We welcome contributions to the `Tokenizer` project. Whether you're a developer, designer, or just enthusiastic about blockchain technology, you can contribute to the project's growth. Here are some ways to get involved:
 
 1. **Fork the Repository:** If you have an improvement in mind or want to fix a bug, fork the repository on GitHub to create your own copy.
 
@@ -336,18 +344,18 @@ We welcome contributions to the Tokenizer project. Whether you're a developer, d
 
 Remember to follow best practices, maintain clean code, and respect the project's coding style and guidelines. Contributions that add value to the project, including bug fixes, new features, and improvements, are highly appreciated.
 
-Thank you for considering contributing to Tokenizer! Together, we can build a better understanding of blockchain technology and empower users within the 42 school community.
+Thank you for considering contributing to `Tokenizer`! Together, we can build a better understanding of blockchain technology and empower users within the 42 school community.
 
 ## License
 
-Tokenizer is open-source software distributed under the [MIT License](https://opensource.org/license/mit/).
+`Tokenizer` is open-source software distributed under the [MIT License](https://opensource.org/license/mit/).
 
 The MIT License (MIT) is a permissive open-source license that allows you to use, modify, and distribute this software for free, as long as you include the original copyright notice and disclaimers. It provides some protection for both the software and the users.
 
-You are free to use Tokenizer in your projects, whether they are open source or proprietary. However, Tokenizer is provided "as is" without any warranty. Please review the full text of the [MIT License](https://opensource.org/license/mit/) to understand your rights and responsibilities when using this software.
+You are free to use `Tokenizer` in your projects, whether they are open source or proprietary. However, `Tokenizer` is provided "as is" without any warranty. Please review the full text of the [MIT License](https://opensource.org/license/mit/) to understand your rights and responsibilities when using this software.
 
-We encourage the open-source community to contribute to and improve Tokenizer. By participating in this project, you agree to abide by the terms of the MIT License.
+We encourage the open-source community to contribute to and improve `Tokenizer`. By participating in this project, you agree to abide by the terms of the MIT License.
 
-Your contributions to Tokenizer are highly appreciated, and your usage is welcomed. Let's build a better understanding of blockchain technology together.
+Your contributions to `Tokenizer` are highly appreciated, and your usage is welcomed. Let's build a better understanding of blockchain technology together.
 
-Thank you for using Tokenizer!
+Thank you for using `Tokenizer`!

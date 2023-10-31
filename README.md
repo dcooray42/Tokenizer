@@ -44,14 +44,14 @@ API_URL = "api_url"
 PRIVATE_KEY = "wallet_private_key"
 ```
 
-- `API_URL`: Replace with the API URL for your chosen network (e.g., Infura).</br>
-- `PRIVATE_KEY`: Replace with the private key of your wallet.
+- **`API_URL:`** Replace with the API URL for your chosen network (e.g., Infura).</br>
+- **`PRIVATE_KEY:`** Replace with the private key of your wallet.
 
 ## Folder Structure
 
-- `code`: Contains the source code for the smart contract.</br>
-- `deployment`: Holds deployment scripts and related files.</br>
-- `documentation`: Any additional documentation or resources for the project.
+- **`code:`** Contains the source code for the smart contract.</br>
+- **`deployment:`** Holds deployment scripts and related files.</br>
+- **`documentation:`** Any additional documentation or resources for the project.
 
 ## Deployment
 
