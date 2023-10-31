@@ -182,13 +182,15 @@ cd Tokenizer/deployment
 
 **`Create a .env File:`** In the deployment folder, create a .env file. This file is used to specify the required environment variables:
 
-**`API_URL:`** Replace this with the API URL for your chosen network. You may use services like Infura, Alchemy, or an Ethereum node URL.
-**`PRIVATE_KEY:`** Insert the private key of the wallet you'll use for the smart contract deployment.
+- **`API_URL:`** Replace this with the API URL for your chosen network. You may use services like Infura, Alchemy, or an Ethereum node URL.
+- **`PRIVATE_KEY:`** Insert the private key of the wallet you'll use for the smart contract deployment.
+- **`SMART_CONTRACT_ADDRESS:`** Replace with the token smart contract address once the deployment script has executed once.
 Here's an example of what the .env file might look like:
 
 ```plaintext
 API_URL=https://eth-sepolia.g.alchemy.com/v2/[YOUR-API-KEY]
 PRIVATE_KEY=your_wallet_private_key
+SMART_CONTRACT_ADDRESS=smart_contract_address
 ```
 
 **`Run the Deployment Script:`** Once the .env file is configured, you can initiate the deployment process by executing the start.sh script:

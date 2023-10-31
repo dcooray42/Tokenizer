@@ -92,13 +92,13 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
     }
 
     function totalSupply() public view override returns (uint) {
-        return _totalSupply - balances[address(0)];
+        return (_totalSupply - balances[address(0)]) / 10 ** uint(decimals);
     }
 
     function balanceOf(
         address tokenOwner
     ) public view override returns (uint balance) {
-        return balances[tokenOwner];
+        return balances[tokenOwner] / 10 ** uint(decimals);
     }
 
     function transfer(
@@ -154,6 +154,6 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
         address tokenOwner,
         address spender
     ) public view override returns (uint remaining) {
-        return allowed[tokenOwner][spender];
+        return allowed[tokenOwner][spender] / 10 ** uint(decimals);
     }
 }

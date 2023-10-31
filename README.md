@@ -42,15 +42,17 @@ Create a `.env` file in the `deployment` directory and specify the following env
 ```plaintext
 API_URL = "api_url"
 PRIVATE_KEY = "wallet_private_key"
+CONTRACT_ADDRESS = "contract_address"
 ```
 
-- **`API_URL:`** Replace with the API URL for your chosen network (e.g., Infura).</br>
+- **`API_URL:`** Replace with the API URL for your chosen network (e.g., Infura).
 - **`PRIVATE_KEY:`** Replace with the private key of your wallet.
+- **`SMART_CONTRACT_ADDRESS:`** Replace with the token smart contract address once the deployment script has executed once.
 
 ## Folder Structure
 
-- **`code:`** Contains the source code for the smart contract.</br>
-- **`deployment:`** Holds deployment scripts and related files.</br>
+- **`code:`** Contains the source code for the smart contract.
+- **`deployment:`** Holds deployment scripts and related files.
 - **`documentation:`** Any additional documentation or resources for the project.
 
 ## Deployment
@@ -62,7 +64,7 @@ To deploy the smart contract to your chosen testnet, use the provided deployment
 ./start.sh
 ```
 
-The script compiles the contract, deploys it, and prints the address of the deployed smart contract.
+The script compiles the contract, deploys it, and prints the address of the deployed smart contract. Once you have the address of the token smart contract, add it to the `.env` file.
 
 ## Account Configuration
 
