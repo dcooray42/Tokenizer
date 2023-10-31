@@ -147,8 +147,6 @@ Before initiating the deployment process, ensure that you have the following pre
 
 ### Deployment Steps
 
-Follow these steps to deploy the 42DCO Token smart contract on the Sepolia testnet:
-
 `Navigate to Deployment Folder`: Open your terminal and navigate to the deployment folder within the cloned Tokenizer repository:
 
 ```shell
@@ -157,27 +155,27 @@ cd Tokenizer/deployment
 
 `Create a .env File`: In the deployment folder, create a .env file. This file is used to specify the required environment variables:
 
-`API_URL`: Replace this with the API URL for the Sepolia testnet. You can obtain the Sepolia testnet RPC URL from your preferred provider, such as Alchemy or Infura.
+`API_URL`: Replace this with the API URL for your chosen network. You may use services like Infura, Alchemy, or an Ethereum node URL.
 `PRIVATE_KEY`: Insert the private key of the wallet you'll use for the smart contract deployment.
-Here's an example of what the .env file might look like for deploying on the Sepolia testnet:
+Here's an example of what the .env file might look like:
 
 ```plaintext
 API_URL=https://eth-sepolia.g.alchemy.com/v2/[YOUR-API-KEY]
 PRIVATE_KEY=your_wallet_private_key
 ```
 
-`Run the Deployment Script on Sepolia`: Once the .env file is configured, you can initiate the deployment process on the Sepolia testnet by executing the start.sh script:
+`Run the Deployment Script`: Once the .env file is configured, you can initiate the deployment process by executing the start.sh script:
 
 ```shell
 ./start.sh
 ```
 
-This script will perform the following actions on the Sepolia testnet:
+This script will perform the following actions:
 
 Install the necessary dependencies, ensuring your environment is ready for deployment.</br>
 Compile the 42DCO Token smart contract using the Solidity compiler.</br>
-Deploy the smart contract to the Sepolia testnet.
-The network configurations and deployment script details can be tailored to suit your specific needs, including choosing the Sepolia testnet for deployment.
+Deploy the smart contract to the specified network.</br>
+The network configurations and deployment script details can be tailored to suit your specific needs, including choosing the desired Ethereum network.
 
 ### Custom Configuration
 
@@ -187,19 +185,19 @@ By following these steps and customizing the deployment configuration as needed,
 
 ## Interacting with the 42DCO Token
 
-To interact with the 42DCO Token on the Sepolia testnet, you will use a series of scripts and functions provided in the interact.js and interact.sh files within the deployment folder. These scripts facilitate various interactions with the token, such as checking balances, transferring tokens, approving transfers, and more.
+To interact with the 42DCO Token, you will use a series of scripts and functions provided in the interact.js and interact.sh files within the deployment folder. These scripts facilitate various interactions with the token, such as checking balances, transferring tokens, approving transfers, and more.
 
 ### Interact Prerequisites
 
-Before you begin interacting with the 42DCO Token on the Sepolia testnet, ensure you have the following prerequisites in place:
+Before you begin interacting with the 42DCO Token, ensure you have the following prerequisites in place:
 
-`Ethereum Wallets`: You should have access to Ethereum wallets for various accounts that will interact with the token on the Sepolia testnet. Make sure you have these wallets configured and your private keys accessible.
+`Ethereum Wallets`: You should have access to Ethereum wallets for various accounts that will interact with the token. Make sure you have these wallets configured and your private keys accessible.
 
-`Ether (ETH)`: To execute transactions and interactions on the Ethereum network, you'll need a small amount of Ether to cover gas fees. Ensure that your Ethereum wallets have a sufficient balance of ETH for the Sepolia testnet.
+`Ether (ETH)`: To execute transactions and interactions on the Ethereum network, you'll need a small amount of Ether to cover gas fees. Ensure that your Ethereum wallets have a sufficient balance of ETH.
 
 ### Using the interact.sh Script
 
-The interact.sh script simplifies the process of interacting with the 42DCO Token on the Sepolia testnet. Here's how to use it:
+The interact.sh script simplifies the process of interacting with the 42DCO Token. Here's how to use it:
 
 Open your terminal and navigate to the deployment folder:
 
@@ -213,9 +211,9 @@ Execute the interact.sh script using the following command:
 ./interact.sh
 ```
 
-The script will guide you through various interactions with the token on the Sepolia testnet.</br>
+The script will guide you through various interactions with the token.</br>
 Adding Wallets to `accounts.json`</br>
-Before running the `interact.sh` script for the Sepolia testnet, you need to populate the `accounts.json` file with Ethereum wallet addresses and private keys for the accounts you want to use on the Sepolia testnet.</br>
+Before running the `interact.sh` script, you need to populate the `accounts.json` file with Ethereum wallet addresses and private keys for the accounts you want to use.</br>
 The `accounts.json` file has the following template:
 
 ```json
@@ -233,43 +231,45 @@ You can add or remove wallets from this file as needed. Each wallet should have 
 
 ### Using the interact.js Script
 
-The `interact.js` script is responsible for the actual interactions with the 42DCO Token on the Sepolia testnet. It utilizes the Hardhat Ethereum development environment and Ethereum library to communicate with the token's smart contract. The script includes functions for various interactions, including checking the total supply, account balances, transferring tokens, approving transfers, and more.
+The `interact.js` script is responsible for the actual interactions with the 42DCO Token. It utilizes the Hardhat Ethereum development environment and Ethereum library to communicate with the token's smart contract. The script includes functions for various interactions, including checking the total supply, account balances, transferring tokens, approving transfers, and more.
 
-Here are some of the key interactions you can perform with the `interact.js` script on the Sepolia testnet:
+Here are some of the key interactions you can perform with the `interact.js` script:
 
 `Total Supply`: Check the total supply of 42DCO tokens.
 
-`Balance Of`: Check the balance of a specific Ethereum wallet on the Sepolia testnet.
+`Balance Of`: Check the balance of a specific Ethereum wallet.
 
-`Transfer`: Transfer a specified amount of 42DCO tokens to another wallet on the Sepolia testnet.
+`Transfer`: Transfer a specified amount of 42DCO tokens to another wallet.
 
-`Approve`: Approve another Ethereum address to spend tokens on your behalf on the Sepolia testnet.
+`Approve`: Approve another Ethereum address to spend tokens on your behalf.
 
-`Transfer From`: Transfer tokens from one wallet to another on the Sepolia testnet, given appropriate approvals.
+`Transfer From`: Transfer tokens from one wallet to another, given appropriate approvals.
 
-`Allowance`: Check the allowance granted to another address by a token holder on the Sepolia testnet.
+`Allowance`: Check the allowance granted to another address by a token holder.
 
 The script will guide you through each interaction, and you'll be prompted to enter relevant details and confirm your actions. After each interaction, you will receive feedback on the executed action.
 
-These interactions are designed to be user-friendly and provide seamless access to the features of the 42DCO Token on the Sepolia testnet.
+These interactions are designed to be user-friendly and provide seamless access to the features of the 42DCO Token.
 
 ### Running the interact.js Script
 
-To execute interactions using the interact.js script on the Sepolia testnet, follow these steps:
+To execute interactions using the interact.js script, follow these steps:
 
 Ensure you are in the deployment folder within the project directory.
 
-Open your terminal and run the `interact.js` script with the following command for the Sepolia testnet:
+Open your terminal and run the `interact.js` script with the following command:
 
 ```shell
 npx hardhat run interact.js --network sepolia
 ```
 
+Here the script is ran to be executed on the Sepolia testnet but it could be any network.
+
 Follow the on-screen prompts to select the interaction you want to perform and provide any required information.
 
 The script will handle the interaction and provide feedback on the executed action.
 
-By following these steps, you can seamlessly interact with the 42DCO Token on the Sepolia testnet and explore its various functionalities.
+By following these steps, you can seamlessly interact with the 42DCO Token and explore its various functionalities.
 
 ## Conclusion
 
