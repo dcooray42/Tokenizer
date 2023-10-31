@@ -4,7 +4,7 @@ const fs = require("fs");
 const prompt = require("prompt-sync")();
 
 const total_supply = async (token) => {
-    console.log(`Total supply: ${await token.totalSupply()}`);
+    console.log(`Total supply: ${await token.totalSupply()} 42DCO`);
 }
 
 const balance_of = async (token) => {
