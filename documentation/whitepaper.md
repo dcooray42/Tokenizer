@@ -87,11 +87,8 @@ Clone the Repository: Begin by cloning the Tokenizer GitHub repository to your l
 
 Node.js and npm: Make sure you have Node.js and npm (Node Package Manager) installed on your system. If you haven't already installed them, you can download and install them from the official Node.js website.
 
-Hardhat Development Environment: We use the Hardhat development environment for compiling and deploying the smart contract. If you haven't installed Hardhat, you can do so using npm:
+Hardhat Development Environment: We use the Hardhat development environment for compiling and deploying the smart contract.
 
-shell
-Copy code
-npm install --save-dev hardhat
 API URL and Private Key: You will need to configure your deployment environment by providing your API URL and the private key of the wallet associated with the smart contract deployment. These values will be used in the .env file, as described below.
 
 Deployment Steps
@@ -111,7 +108,7 @@ Here's an example of what the .env file might look like:
 plaintext
 Copy code
 API_URL=https://eth-sepolia.g.alchemy.com/v2/[YOUR-API-KEY]
-PRIVATE_KEY=your_private_key
+PRIVATE_KEY=your_wallet_private_key
 Run the Deployment Script: Once the .env file is configured, you can initiate the deployment process by executing the start.sh script:
 
 shell
