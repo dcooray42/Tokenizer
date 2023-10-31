@@ -49,17 +49,17 @@ Blockchain technology has been revolutionizing the digital world, offering unpre
 
 ### The Challenge
 
-In the realm of education, particularly within the 42 school community, an age-old problem persists — the outdated currency system. This currency is primarily used for a variety of purposes, including accessing the school's amphitheater, obtaining exclusive school merchandise, and participating in past events. However, acquiring these tokens has proven to be an arduous task, as it often requires achieving specific, hard-to-attain milestones.
+In the realm of education, particularly within the 42 school community, an age-old problem persists — the outdated currency system. This currency is primarily used for a variety of purposes, including accessing the school's amphitheater, obtaining exclusive school merchandise, customize its title on the intra, change the hall voice when entering the school, and so on. However, acquiring these tokens has proven to be an arduous task, as it often requires achieving specific, hard-to-attain milestones.
 
 ### The Solution: 42DCO Token
 
-The 42DCO token, implemented as a smart contract, offers a solution to replace this legacy currency system and become the cornerstone for future developers looking to streamline the exchange of currency within the school community. This token simplifies the process, offering a more accessible method for users to earn and utilize tokens. For example, earning tokens could be tied to completing projects, attending events, or fulfilling core requirements — all in a transparent and decentralized manner.
+The 42DCO token, implemented as a smart contract, offers a solution to replace this legacy currency system and become the cornerstone for future developers looking to streamline the exchange of currency within the school community. This token simplifies the process, offering a more accessible method for users to earn and utilize tokens. For example, earning tokens could be tied to completing projects, attending events, or fulfilling the common core requirements — all in a transparent and decentralized manner.
 
 ### Key Features
 
 This project primarily revolves around the reimplementation of the ERC20 token standard, utilizing OpenZeppelin for secure, standardized, and efficient smart contract development. The 42DCO token incorporates six main functions/methods: totalSupply, balanceOf, allowance, transfer, approve, and transferFrom. These functionalities form the backbone of the token, enabling straightforward management of token balances, transactions, and approvals.
 
-In the subsequent sections of this whitepaper, we will delve into the core details of the 42DCO token, including its architecture, use cases, deployment process, and interactions. Our goal is to empower users to navigate the blockchain world with confidence, equipping them with the knowledge and skills necessary to work with smart contracts on various networks.
+In the subsequent sections of this whitepaper, we will delve into the core details of the 42DCO token, including its architecture, deployment process, and interactions. Our goal is to empower users to navigate the blockchain world with confidence, equipping them with the knowledge and skills necessary to work with smart contracts on various networks.
 
 ## Project Overview
 
@@ -199,10 +199,13 @@ PRIVATE_KEY=your_wallet_private_key
 
 This script will perform the following actions:
 
-Install the necessary dependencies, ensuring your environment is ready for deployment.</br>
-Compile the 42DCO Token smart contract using the Solidity compiler.</br>
-Deploy the smart contract to the specified network.</br>
-The network configurations and deployment script details can be tailored to suit your specific needs, including choosing the desired Ethereum network.
+1. Install the necessary dependencies, ensuring your environment is ready for deployment.
+
+2. Compile the 42DCO Token smart contract using the Solidity compiler.
+
+3. Deploy the smart contract to the specified network.
+
+4. The network configurations and deployment script details can be tailored to suit your specific needs, including choosing the desired Ethereum network.
 
 ### Custom Configuration
 
@@ -239,7 +242,7 @@ Execute the interact.sh script using the following command:
 ```
 
 The script will guide you through various interactions with the token.</br>
-Adding Wallets to `accounts.json`</br>
+Adding Wallets to `accounts.json`.</br>
 Before running the `interact.sh` script, you need to populate the `accounts.json` file with Ethereum wallet addresses and private keys for the accounts you want to use.</br>
 The `accounts.json` file has the following template:
 
@@ -290,7 +293,7 @@ Open your terminal and run the `interact.js` script with the following command:
 npx hardhat run interact.js --network sepolia
 ```
 
-Here the script is ran to be executed on the Sepolia testnet but it could be any network.
+Here the script is ran to be executed on the Sepolia testnet but it could be ran on any network.
 
 Follow the on-screen prompts to select the interaction you want to perform and provide any required information.
 
