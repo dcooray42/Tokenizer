@@ -197,11 +197,11 @@ const select_wallet = async (wallets_info) => {
     let value;
     var attached_wallet;
 
-    const { API_URL } = process.env;
+    const { API_URL, SMART_CONTRACT_ADDRESS } = process.env;
 
     const provider = new ethers.providers.JsonRpcProvider(API_URL);
     const Token = await ethers.getContractFactory("DCOToken");
-    const token = Token.attach("0x48135556160d4A40C05DD9985eC4B536AD03aF94");
+    const token = Token.attach(SMART_CONTRACT_ADDRESS);
     while (true) {
         display_wallets(wallets_info);
         value = prompt("Select a wallet from the list above (press 'q' to quit): ");

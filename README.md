@@ -101,9 +101,9 @@ The script will prompt you to select an action and the corresponding wallet to u
 ## Smart Contract Information
 
 This smart contract has been deployed on the `Sepolia Testnet`.</br>
-The deployed smart contract's address: [0x48135556160d4A40C05DD9985eC4B536AD03aF94](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94)
+The deployed smart contract's address: [0x9365325272B8930B536b22477Eb71417FaE73CB1](https://sepolia.etherscan.io/address/0x9365325272B8930B536b22477Eb71417FaE73CB1)
 
-Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94).
+Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0x9365325272B8930B536b22477Eb71417FaE73CB1).
 
 ## License
 
