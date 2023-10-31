@@ -1,4 +1,5 @@
 # Tokenizer
+
 Tokenizer is a 42 school project that serves as an introduction to the world of blockchain technology. This project involves deploying a token smart contract on a testnet of your choice, aiming to provide a better understanding of the blockchain, contract deployment, and interaction with smart contracts. Tokenizer encourages critical thinking, creativity, and pushing beyond your comfort zone to navigate the complexities of blockchain technology.
 
 ## Table of Contents
@@ -15,47 +16,56 @@ Tokenizer is a 42 school project that serves as an introduction to the world of 
 - [License](#license)
 
 ## Getting Started
+
 To begin, you'll need to set up your environment and interact with the smart contract.
 
 ## Prerequisites
+
 Before you begin, make sure you have the following:
 
-- A basic understanding of blockchain technology.<br>
-- An Ethereum wallet (e.g., MetaMask).<br>
+- A basic understanding of blockchain technology.</br>
+- An Ethereum wallet (e.g., MetaMask).</br>
 - Some testnet Ether for deploying and interacting with the smart contract.
 
 ## Project Overview
+
 Tokenizer is designed to help you gain insights into blockchain technology. The project focuses on the deployment of a token smart contract on a testnet, and its goals include:
 
-- Enhancing your understanding of blockchain concepts.<br>
-- Navigating the complexities of blockchain technology.<br>
+- Enhancing your understanding of blockchain concepts.</br>
+- Navigating the complexities of blockchain technology.</br>
 - Providing a creative and critical learning experience.
 
 ## Environment Variables
+
 Create a `.env` file in the `deployment` directory and specify the following environment variables:
 
 ```plaintext
 API_URL = "api_url"
 PRIVATE_KEY = "wallet_private_key"
 ```
-- `API_URL`: Replace with the API URL for your chosen network (e.g., Infura).<br>
+
+- `API_URL`: Replace with the API URL for your chosen network (e.g., Infura).</br>
 - `PRIVATE_KEY`: Replace with the private key of your wallet.
 
 ## Folder Structure
-- `code`: Contains the source code for the smart contract.<br>
-- `deployment`: Holds deployment scripts and related files.<br>
+
+- `code`: Contains the source code for the smart contract.</br>
+- `deployment`: Holds deployment scripts and related files.</br>
 - `documentation`: Any additional documentation or resources for the project.
 
 ## Deployment
-Make sure to be in the `deployment` folder to continue.<br>
+
+Make sure to be in the `deployment` folder to continue.</br>
 To deploy the smart contract to your chosen testnet, use the provided deployment script:
 
 ```shell
 ./start.sh
 ```
+
 The script compiles the contract, deploys it, and prints the address of the deployed smart contract.
 
 ## Account Configuration
+
 To perform actions on the smart contract, create an `accounts.json` file in the `deployment` directory and structure it as follows:
 
 ```json
@@ -70,10 +80,12 @@ To perform actions on the smart contract, create an `accounts.json` file in the 
     }
 ]
 ```
+
 Add as many accounts as needed for your testing.
 
 ## Interacting with the Smart Contract
-Make sure to be in the `deployment` folder to continue.<br>
+
+Make sure to be in the `deployment` folder to continue.</br>
 To interact with the deployed smart contract, use the provided JavaScript script. The script allows you to perform actions like checking balances, transferring tokens, approving transactions, and more.
 
 Run the interaction script using the following command:
@@ -81,16 +93,20 @@ Run the interaction script using the following command:
 ```shell
 ./interact.sh
 ```
+
 The script will prompt you to select an action and the corresponding wallet to use for the interaction. Follow the prompts to perform your desired actions.
 
 ## Smart Contract Information
-This smart contract has been deployed on the `Sepolia Testnet`.<br>
+
+This smart contract has been deployed on the `Sepolia Testnet`.</br>
 The deployed smart contract's address: [0x48135556160d4A40C05DD9985eC4B536AD03aF94](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94)
 
 Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94).
 
 ## License
+
 This project is licensed under the [MIT License](https://opensource.org/license/mit/).
 
 ## Acknowledgments
+
 Tokenizer was created as part of a school project to explore blockchain technology. We hope this project helps you gain a deeper understanding of blockchain and smart contract deployment.
