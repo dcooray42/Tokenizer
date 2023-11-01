@@ -108,7 +108,7 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
         uint totalTokens;
         uint transactionID;
 
-        totalTokens = tokens * 10 ** uint(decimals);
+        totalTokens = tokens;
         transactionID = submitTransaction(msg.sender, to, totalTokens);
         confirmTransaction(transactionID);
         balances[msg.sender] = safeSub(balances[msg.sender], totalTokens);
@@ -123,7 +123,7 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
     ) public override returns (bool success) {
         uint totalTokens;
 
-        totalTokens = tokens * 10 ** uint(decimals);
+        totalTokens = tokens;
         allowed[msg.sender][spender] = totalTokens;
         emit Approval(msg.sender, spender, totalTokens);
         return true;
@@ -137,7 +137,7 @@ contract DCOToken is MultiSigWallet, ERC20Interface, SafeMath {
         uint totalTokens;
         uint transactionID;
 
-        totalTokens = tokens * 10 ** uint(decimals);
+        totalTokens = tokens;
         transactionID = submitTransaction(from, to, totalTokens);
         confirmTransaction(transactionID);
         balances[from] = safeSub(balances[from], totalTokens);

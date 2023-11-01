@@ -152,9 +152,9 @@ For a detailed breakdown of the token distribution and associated addresses, ref
 ### Smart Contract Information
 
 This smart contract has been deployed on the `Sepolia Testnet`.</br>
-The deployed smart contract's address: [0x48135556160d4a40c05dd9985ec4b536ad03af94](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94)
+The deployed smart contract's address: [0xb1Ae9e6041ED7D074205E25A8c7f1f7C57e93196](https://sepolia.etherscan.io/address/0xb1Ae9e6041ED7D074205E25A8c7f1f7C57e93196)
 
-Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0x48135556160d4a40c05dd9985ec4b536ad03af94).
+Explore transactions and interactions on the smart contract on [Etherscan](https://sepolia.etherscan.io/address/0xb1Ae9e6041ED7D074205E25A8c7f1f7C57e93196).
 
 ## Deployment
 
