@@ -4,21 +4,31 @@ const fs = require("fs");
 const prompt = require("prompt-sync")();
 
 const total_supply = async (token) => {
-    console.log(`Total supply: ${await token.totalSupply()} 42DCO`);
+    try {
+        const decimals = await token.decimals();
+        console.log(`Total supply: ${(await token.totalSupply() / 10 ** decimals).toFixed(decimals)} 42DCO`);
+    } catch (err) {
+        throw err;
+    }
 }
 
 const balance_of = async (token) => {
-    let wallet_address;
+    const wallet_address = prompt("Enter the address of the wallet: ");
 
-    wallet_address = prompt("Enter the address of the wallet: ");
-    console.log(`Balance of ${wallet_address}: ${await token.balanceOf(wallet_address)} 42DCO`);
+    try {
+        const decimals = await token.decimals();
+        console.log(`Balance of ${wallet_address}: ${(await token.balanceOf(wallet_address) / 10 ** decimals).toFixed(decimals)} 42DCO`);
+    } catch (err) {
+        throw err;
+    }
 }
 
 const transfer = async (token) => {
-    let wallet_address;
+    let decimals;
+    let events;
     let value;
+    const wallet_address = prompt("Enter the address of the wallet: ");
 
-    wallet_address = prompt("Enter the address of the wallet: ");
     while (true) {
         value = parseInt(prompt("Enter the amount of tokens to transfer: "));
         if (isNaN(value)) {
@@ -27,17 +37,23 @@ const transfer = async (token) => {
             break;
         }
     }
-    const startBlock = await token.provider.getBlockNumber();
-    const tx = await token.transfer(wallet_address, value);
-    await tx.wait();
-    const endBlock = await token.provider.getBlockNumber();
-    const filter = token.filters.Transfer(null, null);
-    const events = await token.queryFilter(filter, startBlock, endBlock);
+
+    try {
+        decimals = await token.decimals();
+        const startBlock = await token.provider.getBlockNumber();
+        const tx = await token.transfer(wallet_address, value);
+        await tx.wait();
+        const endBlock = await token.provider.getBlockNumber();
+        const filter = token.filters.Transfer(null, null);
+        events = await token.queryFilter(filter, startBlock, endBlock);
+    } catch (err) {
+        throw err;
+    }
 
     if (events.length > 0) {
         console.log("Transfer event associated with this transaction:");
         for (const event of events) {
-            console.log(`From: ${event.args.from}, To: ${event.args.to}, Value: ${event.args.tokens}`);
+            console.log(`From: ${event.args.from}, To: ${event.args.to}, Value: ${(event.args.tokens / 10 ** decimals).toFixed(decimals)}`);
         }
     } else {
         console.log("No Transfer events found for this transaction.");
@@ -45,29 +61,37 @@ const transfer = async (token) => {
 }
 
 const approve = async (token) => {
-    let wallet_address;
+    let decimals;
+    let events;
     let value;
+    let wallet_address;
 
     wallet_address = prompt("Enter the address of the wallet: ");
     while (true) {
-        value = parseInt(prompt("Enter the amount of tokens to transfer: "));
+        value = parseInt(prompt("Enter the amount of tokens to allow to transfer: "));
         if (isNaN(value)) {
             console.log("Please enter a valid number.");
         } else {
             break;
         }
     }
-    const startBlock = await token.provider.getBlockNumber();
-    const tx = await token.approve(wallet_address, value);
-    await tx.wait();
-    const endBlock = await token.provider.getBlockNumber();
-    const filter = token.filters.Approval(null, null);
-    const events = await token.queryFilter(filter, startBlock, endBlock);
+
+    try {
+        decimals = await token.decimals();
+        const startBlock = await token.provider.getBlockNumber();
+        const tx = await token.approve(wallet_address, value);
+        await tx.wait();
+        const endBlock = await token.provider.getBlockNumber();
+        const filter = token.filters.Approval(null, null);
+        events = await token.queryFilter(filter, startBlock, endBlock);
+    } catch (err) {
+        throw err;
+    }
 
     if (events.length > 0) {
         console.log("Approval event associated with this transaction:");
         for (const event of events) {
-            console.log(`From: ${event.args.tokenOwner}, To: ${event.args.spender}, Value: ${event.args.tokens}`);
+            console.log(`From: ${event.args.tokenOwner}, To: ${event.args.spender}, Value: ${(event.args.tokens / 10 ** decimals).toFixed(decimals)}`);
         }
     } else {
         console.log("No Approval events found for this transaction.");
@@ -75,9 +99,11 @@ const approve = async (token) => {
 }
 
 const transfer_from = async (token) => {
+    let decimals;
+    let events;
+    let value;
     let wallet_from;
     let wallet_to;
-    let value;
 
     wallet_from = prompt("Enter the address of the wallet from: ");
     wallet_to = prompt("Enter the address to: ");
@@ -89,17 +115,23 @@ const transfer_from = async (token) => {
             break;
         }
     }
-    const startBlock = await token.provider.getBlockNumber();
-    const tx = await token.transferFrom(wallet_from, wallet_to, value);
-    await tx.wait();
-    const endBlock = await token.provider.getBlockNumber();
-    const filter = token.filters.Transfer(null, null);
-    const events = await token.queryFilter(filter, startBlock, endBlock);
+
+    try {
+        decimals = await token.decimals();
+        const startBlock = await token.provider.getBlockNumber();
+        const tx = await token.transferFrom(wallet_from, wallet_to, value);
+        await tx.wait();
+        const endBlock = await token.provider.getBlockNumber();
+        const filter = token.filters.Transfer(null, null);
+        events = await token.queryFilter(filter, startBlock, endBlock);
+    } catch (err) {
+        throw err;
+    }
 
     if (events.length > 0) {
         console.log("Transfer event associated with this transaction:");
         for (const event of events) {
-            console.log(`From: ${event.args.from}, To: ${event.args.to}, Value: ${event.args.tokens}`);
+            console.log(`From: ${event.args.from}, To: ${event.args.to}, Value: ${(event.args.tokens / 10 ** decimals).toFixed(decimals)}`);
         }
     } else {
         console.log("No Transfer events found for this transaction.");
@@ -107,12 +139,15 @@ const transfer_from = async (token) => {
 }
 
 const allowance = async (token) => {
-    let wallet_from;
-    let wallet_to;
+    const wallet_from = prompt("Enter the address of the wallet from: ");
+    const wallet_to = prompt("Enter the address to: ");
 
-    wallet_from = prompt("Enter the address of the wallet from: ");
-    wallet_to = prompt("Enter the address to: ");
-    console.log(`${wallet_from} allowed ${wallet_to} to withdraw from its account ${await token.allowance(wallet_from, wallet_to)} 42DCO`);
+    try {
+        const decimals = await token.decimals();
+        console.log(`${wallet_from} allowed ${wallet_to} to withdraw from its account ${(await token.allowance(wallet_from, wallet_to) / 10 ** decimals).toFixed(decimals)} 42DCO`);
+    } catch (err) {
+        throw err;
+    }
 }
 
 const smart_contract_methods = [
@@ -143,7 +178,7 @@ const parse_wallets = (data) => {
     var wallets_info = [];
 
     for (const account_name in data[0]) {
-        for (const wallet_value in data[0][account_name]){
+        for (const wallet_value in data[0][account_name]) {
             wallets_info.push([account_name, wallet_value, data[0][account_name][wallet_value]]);
             break;
         }
@@ -158,7 +193,7 @@ const display_methods = () => {
     console.log("2) Transfer");
     console.log("3) Approve");
     console.log("4) Transfer from");
-    console.log("5) Allowance");
+    console.log("5) Allowance\n");
 }
 
 const interact = async (token) => {
@@ -174,6 +209,7 @@ const interact = async (token) => {
         if (value < 0 || value >= 6 || isNaN(value)) {
             console.log("Enter a valid number.");
         } else {
+            console.log("");
             try {
                 await smart_contract_methods[value](token);
             } catch (err) {
@@ -195,12 +231,19 @@ const display_wallets = (wallets_info) => {
 
 const select_wallet = async (wallets_info) => {
     let value;
+    var Token;
     var attached_wallet;
 
     const { API_URL, SMART_CONTRACT_ADDRESS } = process.env;
 
     const provider = new ethers.providers.JsonRpcProvider(API_URL);
-    const Token = await ethers.getContractFactory("DCOToken");
+
+    try {
+        Token = await ethers.getContractFactory("DCOToken");
+    } catch (err) {
+        throw err;
+    }
+
     const token = Token.attach(SMART_CONTRACT_ADDRESS);
     while (true) {
         display_wallets(wallets_info);
@@ -212,9 +255,13 @@ const select_wallet = async (wallets_info) => {
         if (value < 0 || value >= wallets_info.length || isNaN(value)) {
             console.log("Enter a valid number.");
         } else {
-            const wallet = new ethers.Wallet(`0x${wallets_info[value][2]}`, provider);
-            attached_wallet = token.connect(wallet);
-            await interact(attached_wallet);
+            try {
+                const wallet = new ethers.Wallet(`0x${wallets_info[value][2]}`, provider);
+                attached_wallet = token.connect(wallet);
+                await interact(attached_wallet);
+            } catch (err) {
+                throw err;
+            }
         }
     }
 }
@@ -235,6 +282,6 @@ const main = async () => {
 main()
     .then(() => process.exit(0))
     .catch(error => {
-        console.error(error);
+        console.error(error.toString());
         process.exit(1);
     });
