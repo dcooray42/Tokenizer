@@ -42,7 +42,7 @@ Create a `.env` file in the `deployment` directory and specify the following env
 ```plaintext
 API_URL = "api_url"
 PRIVATE_KEY = "wallet_private_key"
-CONTRACT_ADDRESS = "contract_address"
+SMART_CONTRACT_ADDRESS = "contract_address"
 ```
 
 - **`API_URL:`** Replace with the API URL for your chosen network (e.g., Infura).

@@ -7,9 +7,6 @@ require("@nomiclabs/hardhat-ethers");
 // Destructure API_URL and PRIVATE_KEY from process.env
 const { API_URL, PRIVATE_KEY } = process.env;
 
-// Log the API_URL and PRIVATE_KEY to the console for verification
-console.log(API_URL, PRIVATE_KEY);
-
 // Export the Hardhat configuration object
 module.exports = {
     // Solidity compiler settings
